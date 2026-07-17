@@ -18,7 +18,6 @@ namespace Devin.Editor.Unity
         public Version Version { get; set; }
 
         private static readonly List<DevinInstallation> _installations = new List<DevinInstallation>();
-        private static bool _initialized;
 
         public static IEnumerable<DevinInstallation> GetInstallations()
         {
@@ -35,11 +34,8 @@ namespace Devin.Editor.Unity
             }
         }
 
-        public static void Refresh(bool force = false)
+        public static void Refresh()
         {
-            if (_initialized && !force)
-                return;
-
             _installations.Clear();
 
             foreach (var candidate in GetInstallationCandidates().Distinct())
@@ -56,8 +52,6 @@ namespace Devin.Editor.Unity
                 if (manualInstallation != null)
                     _installations.Add(manualInstallation);
             }
-
-            _initialized = true;
         }
 
         private static IEnumerable<string> GetInstallationCandidates()
