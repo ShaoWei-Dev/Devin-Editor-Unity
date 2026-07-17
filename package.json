@@ -1,0 +1,24 @@
+{
+  "name": "com.shaowei.devin.editor",
+  "displayName": "ShaoWei-Dev/Devin Editor",
+  "description": "Unity Editor integration for the Devin Desktop IDE. Registers Devin as an external script editor and generates .devin project context files.",
+  "version": "1.0.0",
+  "unity": "2021.3",
+  "dependencies": {},
+  "relatedPackages": {},
+  "repository": {
+    "url": "https://github.com/ShaoWei-Dev/Devin-Editor-Unity.git",
+    "type": "git",
+    "revision": "main"
+  },
+  "author": {
+    "name": "ShaoWei-Dev"
+  },
+  "keywords": [
+    "devin",
+    "ai",
+    "agent",
+    "editor",
+    "unity"
+  ]
+}
