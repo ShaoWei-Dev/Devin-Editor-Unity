@@ -1,4 +1,5 @@
 using System.Linq;
+using Unity.CodeEditor;
 using UnityEditor;
 
 namespace Devin.Editor.Unity
@@ -26,8 +27,8 @@ namespace Devin.Editor.Unity
         {
             DevinInstallation.Refresh();
             var installation = DevinInstallation.GetInstallations().FirstOrDefault();
-            var status = installation != null ? $"found at {installation.Path}" : "not found";
-            Debug.Log($"[Devin] Devin IDE {status}");
+            var status = installation != null ? $"found at {installation.ExecutablePath}" : "not found";
+            UnityEngine.Debug.Log($"[Devin] Devin IDE {status}");
         }
     }
 }

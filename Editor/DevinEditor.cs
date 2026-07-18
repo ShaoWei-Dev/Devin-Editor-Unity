@@ -17,7 +17,7 @@ namespace Devin.Editor.Unity
         private static readonly List<DevinInstallation> _installations = new List<DevinInstallation>();
 
         CodeEditor.Installation[] IExternalCodeEditor.Installations => _installations
-            .Select(i => new CodeEditor.Installation { Name = i.Name, Path = i.Path })
+            .Select(i => new CodeEditor.Installation { Name = i.Name, Path = i.ExecutablePath })
             .ToArray();
 
         static DevinEditor()
@@ -95,7 +95,7 @@ namespace Devin.Editor.Unity
                 RefreshInstallations();
                 var detected = _installations.FirstOrDefault();
                 if (detected != null)
-                    idePath = detected.Path;
+                    idePath = detected.ExecutablePath;
             }
             EditorGUILayout.EndHorizontal();
 

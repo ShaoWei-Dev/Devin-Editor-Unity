@@ -14,7 +14,7 @@ namespace Devin.Editor.Unity
     internal class DevinInstallation
     {
         public string Name { get; set; } = "Devin";
-        public string Path { get; set; }
+        public string ExecutablePath { get; set; }
         public Version Version { get; set; }
 
         private static readonly List<DevinInstallation> _installations = new List<DevinInstallation>();
@@ -46,7 +46,7 @@ namespace Devin.Editor.Unity
 
             // Also respect a manually configured path that may not be cached yet.
             var preferencePath = NormalizePath(DevinPreferences.DevinIdePath);
-            if (IsValidInstallation(preferencePath) && !_installations.Any(i => NormalizePath(i.Path) == preferencePath))
+            if (IsValidInstallation(preferencePath) && !_installations.Any(i => NormalizePath(i.ExecutablePath) == preferencePath))
             {
                 TryDiscoverInstallation(preferencePath, out var manualInstallation);
                 if (manualInstallation != null)
@@ -138,7 +138,7 @@ namespace Devin.Editor.Unity
             if (!IsValidInstallation(normalized))
                 return false;
 
-            installation = new DevinInstallation { Name = "Devin", Path = normalized };
+            installation = new DevinInstallation { Name = "Devin", ExecutablePath = normalized };
             return true;
         }
 
@@ -155,7 +155,7 @@ namespace Devin.Editor.Unity
             installation = new DevinInstallation
             {
                 Name = "Devin",
-                Path = normalized,
+                ExecutablePath = normalized,
                 Version = new Version()
             };
 
@@ -167,7 +167,7 @@ namespace Devin.Editor.Unity
             try
             {
                 var arguments = BuildOpenArguments(path, line, column);
-                var startInfo = new ProcessStartInfo(Path, arguments)
+                var startInfo = new ProcessStartInfo(ExecutablePath, arguments)
                 {
                     WorkingDirectory = UnityProjectUtility.GetProjectRoot(),
                     UseShellExecute = false,
