@@ -115,11 +115,11 @@ namespace Microsoft.Unity.VisualStudio.Editor
 
 		public void OnGUI()
 		{
-			GUILayout.BeginHorizontal();
-			GUILayout.FlexibleSpace();
-
 			if (!TryGetVisualStudioInstallationForPath(CodeEditor.CurrentEditorInstallation, true, out var installation))
 				return;
+
+			GUILayout.BeginHorizontal();
+			GUILayout.FlexibleSpace();
 
 			var package = UnityEditor.PackageManager.PackageInfo.FindForAssembly(GetType().Assembly);
 
