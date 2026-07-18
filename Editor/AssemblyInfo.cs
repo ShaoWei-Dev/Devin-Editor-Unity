@@ -1,3 +1,4 @@
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 
-[assembly: InternalsVisibleTo("Devin.Editor.Unity.Tests")]
+[assembly:InternalsVisibleTo("Unity.VisualStudio.EditorTests")]
+[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]

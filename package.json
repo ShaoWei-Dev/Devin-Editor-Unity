@@ -1,7 +1,7 @@
 {
   "name": "com.shaowei.devin.editor",
   "displayName": "ShaoWei-Dev/Devin Editor",
-  "description": "Unity Editor integration for the Devin Desktop IDE. Registers Devin as an external script editor and generates .devin project context files.",
+  "description": "Code editor integration for supporting Devin as code editor for unity. Adds support for generating csproj files for intellisense purposes, auto discovery of installations, etc.",
   "version": "1.0.0",
   "unity": "2021.3",
   "dependencies": {},

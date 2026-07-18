@@ -1,40 +1,35 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Unity Technologies.
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 using UnityEditor;
 
-namespace Devin.Editor.Unity
+namespace Microsoft.Unity.VisualStudio.Editor
 {
-    /// <summary>
-    /// Backing preferences for the Devin Desktop IDE integration.
-    /// </summary>
-    internal static class DevinPreferences
-    {
-        private const string Prefix = "com.shaowei.devin.editor.";
-        private const string DevinIdePathKey = Prefix + "DevinIdePath";
-        private const string AutoGenerateRulesKey = Prefix + "AutoGenerateRules";
-        private const string AutoGenerateContextKey = Prefix + "AutoGenerateContext";
-        private const string IncludeExternalPackagesKey = Prefix + "IncludeExternalPackages";
+	internal static class DevinPreferences
+	{
+		private const string Prefix = "com.shaowei.devin.";
+		private const string AutoCopyProjectRulesKey = Prefix + "AutoCopyProjectRules";
+		private const string IncludeExternalPackagesKey = Prefix + "IncludeExternalPackages";
+		private const string ShowLibraryKey = Prefix + "ShowLibrary";
 
-        public static string DevinIdePath
-        {
-            get => EditorPrefs.GetString(DevinIdePathKey, "");
-            set => EditorPrefs.SetString(DevinIdePathKey, value ?? "");
-        }
+		internal static bool AutoCopyProjectRules
+		{
+			get => EditorPrefs.GetBool(AutoCopyProjectRulesKey, true);
+			set => EditorPrefs.SetBool(AutoCopyProjectRulesKey, value);
+		}
 
-        public static bool AutoGenerateRules
-        {
-            get => EditorPrefs.GetBool(AutoGenerateRulesKey, true);
-            set => EditorPrefs.SetBool(AutoGenerateRulesKey, value);
-        }
+		internal static bool IncludeExternalPackages
+		{
+			get => EditorPrefs.GetBool(IncludeExternalPackagesKey, true);
+			set => EditorPrefs.SetBool(IncludeExternalPackagesKey, value);
+		}
 
-        public static bool AutoGenerateContext
-        {
-            get => EditorPrefs.GetBool(AutoGenerateContextKey, true);
-            set => EditorPrefs.SetBool(AutoGenerateContextKey, value);
-        }
-
-        public static bool IncludeExternalPackages
-        {
-            get => EditorPrefs.GetBool(IncludeExternalPackagesKey, false);
-            set => EditorPrefs.SetBool(IncludeExternalPackagesKey, value);
-        }
-    }
+		internal static bool ShowLibrary
+		{
+			get => EditorPrefs.GetBool(ShowLibraryKey, true);
+			set => EditorPrefs.SetBool(ShowLibraryKey, value);
+		}
+	}
 }

@@ -1,6 +1,6 @@
 # Code Editor Package for Devin IDE
 
-Unity Editor integration for the [Devin](https://www.devin.ai/) Desktop IDE. This package registers Devin as an external script editor and generates project context files under `.devin/`.
+Unity Editor integration for the Devin Desktop IDE. This package registers Devin as an external script editor, generates `.csproj` and `.sln` files for IntelliSense, auto-discovers installations, and copies Unity code style rules to `.devin/rules/`.
 
 ## Using the Devin Editor package
 
@@ -31,18 +31,12 @@ https://github.com/ShaoWei-Dev/Devin-Editor-Unity.git
 
 ## Features
 
-- **External editor integration**: Registers Devin as an external script editor in Unity.
+- **External editor integration**: Registers Devin as an external script editor in Unity via `IExternalCodeEditor`.
 - **Auto-discovery**: Automatically finds Devin Desktop IDE installations on macOS, Windows, and Linux.
-- **Manual path override**: Set the Devin executable path in External Tools preferences.
+- **Environment variable override**: Set `DEVIN_PATH` or `DEVIN_EXE` to specify the installation path.
 - **Line/column support**: Opens scripts in Devin at the requested line and column.
-- **Project context generation**: Writes `.devin/rules.md` and `.devin/context.md` with Unity-specific guidance and project metadata.
-- **Project file regeneration**: Refreshes `.csproj` and `.sln` files via Unity's built-in code editor pipeline.
-
-## Generated context files
-
-The package can generate two files under `.devin/`:
-
-- `.devin/rules.md` — Unity coding conventions and project guidance for the Devin IDE.
-- `.devin/context.md` — Project summary, package list, assembly definitions, scripts, and scenes.
-
-These files are written automatically when the editor loads if enabled in the preferences. You can also create them manually from `Tools > Devin > Generate Project Context`.
+- **Project file generation**: Generates `.csproj` (SDK-style) and `.sln` files for IntelliSense, debugging, and analyzers.
+- **Auto-copy project rules**: Copies `UnityCodeStyleInstructions.md` and `UnityPerformanceOptimizationInstructions.md` to `.devin/rules/` when opening a project.
+- **External package support**: Generates `.devin.code-workspace` files for editing external Unity packages.
+- **VS Code settings**: Creates `.vscode/settings.json`, `.vscode/launch.json`, and `.vscode/extensions.json` with Unity-appropriate defaults.
+- **Preferences**: Configurable options for auto-copying rules, including external packages, and showing the Library folder.
